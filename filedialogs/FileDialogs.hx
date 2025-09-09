@@ -118,13 +118,13 @@ extern class Native_FileDialogs {
 #if (scriptable || cppia)
     class FileDialogs {
         public static function open_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, _options:Option=None):Array<String>
-            return Native_FileDialogs.open_file(_title, _intial_path, _filters, cast (_options ?? 0x0));
+            return Native_FileDialogs.open_file(_title, _intial_path, _filters, cast _options);
 
         public static function save_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, _options:Option=None):String
-            return Native_FileDialogs.save_file(_title, _intial_path, _filters, cast (_options ?? 0x0));
+            return Native_FileDialogs.save_file(_title, _intial_path, _filters, cast _options);
 
         public static function select_folder(_title:String, ?_intial_path:String=null, _options:Option=None):String
-            return Native_FileDialogs.select_folder(_title, _intial_path, cast (_options ?? 0x0));
+            return Native_FileDialogs.select_folder(_title, _intial_path, cast _options);
 
         public static function message(_title:String, _text:String, _choice:Choice, _icon:Icon):Button
             return untyped __cpp__('(int){0}', Native_FileDialogs.message(_title, _text, cast _choice, cast _icon));
