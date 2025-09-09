@@ -1,0 +1,6 @@
+<xml>
+    <files id='haxe'>
+        <compilerflag value='-I${LINC_FILEDIALOGS_PATH}linc/'/>
+        <file name='${LINC_FILEDIALOGS_PATH}linc/linc_filedialogs.cpp' />
+    </files>
+</xml>
