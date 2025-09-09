@@ -1,7 +1,5 @@
 package filedialogs;
 
-import haxe.io.Path;
-
 //
 @:unreflective
 extern enum abstract Native_Button(Native_ButtonImpl) {
