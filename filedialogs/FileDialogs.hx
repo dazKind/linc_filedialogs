@@ -1,6 +1,9 @@
 package filedialogs;
 
+import haxe.io.Path;
+
 //
+@:notNull
 @:unreflective
 extern enum abstract Native_Button(Native_ButtonImpl) {
     @:native("pfd::button::cancel") var Cancel;
@@ -24,6 +27,7 @@ extern class Native_ButtonImpl { }
 
 
 //
+@:notNull
 @:unreflective
 extern enum abstract Native_Choice(Native_ChoiceImpl) {
     @:native("pfd::choice::ok") var Ok;
@@ -46,6 +50,7 @@ extern class Native_ChoiceImpl { }
 
 
 //
+@:notNull
 @:unreflective
 extern enum abstract Native_Icon(Native_IconImpl) {
     @:native("pfd::icon::info") var Info;
@@ -67,6 +72,7 @@ extern class Native_IconImpl { }
 
 
 //
+@:notNull
 @:unreflective
 extern enum abstract Native_Option(Native_OptionImpl) {
     @:native("pfd::opt::none") var None;
@@ -94,14 +100,14 @@ extern class Native_OptionImpl { }
 @:build(linc.Linc.xml('filedialogs'))
 #end
 extern class Native_FileDialogs {
-    @:native('linc::filedialogs::open_file')
-    public static function open_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, ?_options:Native_Option=Native_Option.None):Array<String>;
+    inline public static function open_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, _options:Native_Option=Native_Option.None):Array<String>
+        return untyped __cpp__('linc::filedialogs::open_file({0}, {1}, {2}, {3})', _title, _intial_path, _filters, _options);
 
-    @:native('linc::filedialogs::save_file')
-    public static function save_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, ?_options:Native_Option=Native_Option.None):String;
+    inline public static function save_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, _options:Native_Option=Native_Option.None):String
+        return untyped __cpp__('linc::filedialogs::save_file({0}, {1}, {2}, {3})', _title, _intial_path, _filters, _options);
 
-    @:native('linc::filedialogs::select_folder')
-    public static function select_folder(_title:String, ?_intial_path:String=null, ?_options:Native_Option=Native_Option.None):String;
+    inline public static function select_folder(_title:String, ?_intial_path:String=null, _options:Native_Option=Native_Option.None):String
+        return untyped __cpp__('linc::filedialogs::select_folder({0}, {1}, {2})', _title, _intial_path, _options);
 
     @:native('linc::filedialogs::message')
     public static function message(_title:String, _text:String, _choice:Native_Choice, _icon:Native_Icon):Native_Button;
@@ -111,13 +117,13 @@ extern class Native_FileDialogs {
 }
 #if (scriptable || cppia)
     class FileDialogs {
-        public static function open_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, ?_options:Option=None):Array<String>
+        public static function open_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, _options:Option=None):Array<String>
             return Native_FileDialogs.open_file(_title, _intial_path, _filters, cast (_options ?? 0x0));
 
-        public static function save_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, ?_options:Option=None):String
+        public static function save_file(_title:String, ?_intial_path:String=null, ?_filters:Array<String>=null, _options:Option=None):String
             return Native_FileDialogs.save_file(_title, _intial_path, _filters, cast (_options ?? 0x0));
 
-        public static function select_folder(_title:String, ?_intial_path:String=null, ?_options:Option=None):String
+        public static function select_folder(_title:String, ?_intial_path:String=null, _options:Option=None):String
             return Native_FileDialogs.select_folder(_title, _intial_path, cast (_options ?? 0x0));
 
         public static function message(_title:String, _text:String, _choice:Choice, _icon:Icon):Button
