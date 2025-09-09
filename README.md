@@ -35,3 +35,7 @@ FileDialogs.notify(
 
 ```
 
+### screenshots
+
+Find them here: https://github.com/samhocevar/portable-file-dialogs?tab=readme-ov-file#screenshots-windows-10
+
