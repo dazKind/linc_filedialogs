@@ -8,7 +8,7 @@ Haxe/hxcpp&cppia @:native binding for https://github.com/samhocevar/portable-fil
 
 `haxelib git linc_filedialogs https://github.com/dazKind/linc_filedialogs.git`
 
-### run
+### usage
 ```haxe
 import filedialogs.FileDialogs;
 // ...
