@@ -15,6 +15,7 @@ extern enum abstract Native_Button(Native_ButtonImpl) {
     @:native("pfd::button::ignore") var Ignore;
 }
 @:unreflective
+@:include('linc_filedialogs.h')
 @:native('pfd::button')
 @:lincCppiaDef('Button', 'enum')
 extern class Native_ButtonImpl { }
@@ -38,6 +39,7 @@ extern enum abstract Native_Choice(Native_ChoiceImpl) {
     @:native("pfd::choice::abort_retry_ignore") var Abort_Retry_Ignore;
 }
 @:unreflective
+@:include('linc_filedialogs.h')
 @:native('pfd::choice')
 @:lincCppiaDef('Choice', 'enum')
 extern class Native_ChoiceImpl { }
@@ -81,6 +83,7 @@ extern enum abstract Native_Option(Native_OptionImpl) {
     @:native("pfd::opt::force_path") var Force_Path;
 }
 @:unreflective
+@:include('linc_filedialogs.h')
 @:native('pfd::opt')
 @:lincCppiaDef('Option', 'enum')
 extern class Native_OptionImpl { }
