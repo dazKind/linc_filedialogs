@@ -1,6 +1,6 @@
 #include <hxcpp.h>
 
-#include "./linc_filewatch.h"
+#include "./linc_filedialogs.h"
 #include <portable-file-dialogs.h>
 
 namespace linc {
