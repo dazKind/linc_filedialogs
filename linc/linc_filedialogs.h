@@ -4,7 +4,7 @@
 #include <hxcpp.h>
 #endif
 
-#define PFD_SKIP_IMPLEMENTATION 1
+// #define PFD_SKIP_IMPLEMENTATION 1
 #include <portable-file-dialogs.h>
 
 namespace linc {

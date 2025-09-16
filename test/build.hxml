@@ -1,0 +1,4 @@
+-cpp bin
+-main Main
+-cp ../
+-D HXCPP_CPP11
