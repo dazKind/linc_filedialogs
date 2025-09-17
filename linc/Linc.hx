@@ -50,11 +50,18 @@ class Linc {
         var _linc_include_path = Path.normalize(Path.join([ _linc_lib_path, './linc/linc_${_lib}.xml' ]));
         var _linc_lib_var = 'LINC_${_lib.toUpperCase()}_PATH';
 
+        var _windows_fix = '<target id="haxe">
+            <lib name="dwmapi.lib" if="windows" />
+            <lib name="shell32.lib" if="windows" />
+            <lib name="gdi32.lib" if="windows" />
+            <lib name="ole32.lib" if="windows" />
+            <lib name="uxtheme.lib" if="windows" />
+        </target>';
         var _define = '<set name="$_linc_lib_var" value="$_linc_lib_path/"/>';
         var _import_path = '$${$_linc_lib_var}linc/linc_${_lib}.xml';
         var _import = '<include name="$_import_path" />';
 
-        _class.get().meta.add(":buildXml", [{ expr:EConst( CString( '$_define\n$_import' ) ), pos:_pos }], _pos );
+        _class.get().meta.add(":buildXml", [{ expr:EConst( CString( '$_windows_fix\n$_define\n$_import' ) ), pos:_pos }], _pos );
         
         return Context.getBuildFields();
 
