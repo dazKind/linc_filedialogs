@@ -1,13 +1,15 @@
 <xml>
-    <target id="haxe">
-        <lib name="dwmapi.lib" if="windows" />
-        <lib name="shell32.lib" if="windows" />
-        <lib name="gdi32.lib" if="windows" />
-        <lib name="ole32.lib" if="windows" />
-        <lib name="uxtheme.lib" if="windows" />
-    </target>
     <files id='haxe'>
         <compilerflag value='-I${LINC_FILEDIALOGS_PATH}linc/'/>
         <file name='${LINC_FILEDIALOGS_PATH}linc/linc_filedialogs.cpp' />
     </files>
+    <target id="haxe" if="windows">
+        <lib name="dwmapi.lib" />
+        <lib name="gdi32.lib" />
+        <lib name="uxtheme.lib" />
+        <lib name="ole32.lib" />
+        <lib name="userenv.lib" />
+        <lib name="shell32.lib" />
+        <lib name="comdlg32.lib" />
+    </target>
 </xml>
